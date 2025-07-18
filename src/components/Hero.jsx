@@ -127,9 +127,7 @@ const Hero = () => {
   };
 
   return (
-    <div id="home" className="relative bg-gradient-to-r from-gray-900 to-blue-900 py-16 md:py-24 overflow-hidden min-h-[800px] flex items-center justify-center text-white">
-      <div className="absolute inset-0 bg-pattern-dark opacity-10"></div>
-      
+    <div id="home" className="relative bg-white py-16 md:py-24 overflow-hidden min-h-[800px] flex items-center justify-center text-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         <motion.h1
           className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight"
@@ -137,10 +135,10 @@ const Hero = () => {
           initial="hidden"
           animate="visible"
         >
-          Transform Customer Service with <br className="hidden sm:inline" /><span className="text-cyan-300 drop-shadow-md">Artificial Intelligence</span>
+          Transform Customer Service with <br className="hidden sm:inline" /><span className="text-indigo-600">Artificial Intelligence</span>
         </motion.h1>
         <motion.p
-          className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed"
+          className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed"
           variants={fadeInVariants}
           initial="hidden"
           animate="visible"
@@ -157,14 +155,14 @@ const Hero = () => {
         >
           <a
             href="#demo"
-            className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-blue-900 bg-cyan-300 hover:bg-cyan-400 md:py-4 md:px-10 transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:px-10 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             Watch Demo
             <FontAwesomeIcon icon={faChevronRight} className="ml-2 -mr-1 h-4 w-4" />
           </a>
           <a
             href="#pricing"
-            className="inline-flex items-center justify-center px-8 py-3 border border-cyan-300 text-base font-medium rounded-full text-white hover:bg-cyan-300 hover:text-blue-900 md:py-4 md:px-10 transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center justify-center px-8 py-3 border border-indigo-600 text-base font-medium rounded-full text-indigo-600 hover:bg-indigo-50 md:py-4 md:px-10 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             View Pricing
           </a>
@@ -189,7 +187,7 @@ const Hero = () => {
               >
                 <div className={`relative w-full h-full bg-gradient-to-br ${slides[currentSlide].sentimentColor} rounded-3xl shadow-2xl p-8 flex flex-col justify-between text-white overflow-hidden`}>
                   <div className="absolute -top-10 -right-10 w-48 h-48 text-white/10">
-                     <FontAwesomeIcon icon={faRobot} className="w-full h-full" />
+                      <FontAwesomeIcon icon={faRobot} className="w-full h-full" />
                   </div>
 
                   {/* Top Section: Customer Input */}
@@ -204,20 +202,20 @@ const Hero = () => {
                   {/* Bottom Section: AI Response */}
                   <div className="relative mt-4">
                       <div className="flex items-center mb-3">
-                         <FontAwesomeIcon icon={faRobot} className="mr-3 text-2xl text-cyan-300" />
-                         <h3 className="text-xl font-bold">SmartSat Response</h3>
+                          <FontAwesomeIcon icon={faRobot} className="mr-3 text-2xl text-cyan-300" />
+                          <h3 className="text-xl font-bold">SmartSat Response</h3>
                       </div>
                       <p className="text-white/90 text-base bg-black/10 p-4 rounded-lg">{slides[currentSlide].aiResponse}</p>
                   </div>
 
                   {/* Loyalty & Sentiment Overlay */}
-                   <div className="absolute bottom-4 right-6 flex items-center space-x-4 text-sm">
-                       <span className="font-semibold bg-black/20 px-3 py-1 rounded-full">{slides[currentSlide].sentiment}</span>
-                       <div className={`flex items-center font-semibold ${slides[currentSlide].loyaltyColor}`}>
-                           <FontAwesomeIcon icon={slides[currentSlide].loyaltyIcon} className="mr-2" />
-                           {slides[currentSlide].loyalty}
-                       </div>
-                   </div>
+                    <div className="absolute bottom-4 right-6 flex items-center space-x-4 text-sm">
+                        <span className="font-semibold bg-black/20 px-3 py-1 rounded-full">{slides[currentSlide].sentiment}</span>
+                        <div className={`flex items-center font-semibold ${slides[currentSlide].loyaltyColor}`}>
+                            <FontAwesomeIcon icon={slides[currentSlide].loyaltyIcon} className="mr-2" />
+                            {slides[currentSlide].loyalty}
+                        </div>
+                    </div>
                 </div>
               </motion.div>
             </AnimatePresence>
@@ -226,14 +224,14 @@ const Hero = () => {
           {/* Navigation Buttons */}
           <button
             onClick={prevSlide}
-            className="absolute top-1/2 -left-4 md:-left-12 transform -translate-y-1/2 bg-white/80 hover:bg-white text-blue-800 p-3 rounded-full shadow-lg z-20 transition-all duration-300 hover:scale-110 focus:outline-none"
+            className="absolute top-1/2 -left-4 md:-left-12 transform -translate-y-1/2 bg-gray-100 hover:bg-gray-200 text-indigo-600 p-3 rounded-full shadow-lg z-20 transition-all duration-300 hover:scale-110 focus:outline-none"
             aria-label="Previous Slide"
           >
             <FontAwesomeIcon icon={faChevronLeft} className="w-5 h-5" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute top-1/2 -right-4 md:-right-12 transform -translate-y-1/2 bg-white/80 hover:bg-white text-blue-800 p-3 rounded-full shadow-lg z-20 transition-all duration-300 hover:scale-110 focus:outline-none"
+            className="absolute top-1/2 -right-4 md:-right-12 transform -translate-y-1/2 bg-gray-100 hover:bg-gray-200 text-indigo-600 p-3 rounded-full shadow-lg z-20 transition-all duration-300 hover:scale-110 focus:outline-none"
             aria-label="Next Slide"
           >
             <FontAwesomeIcon icon={faChevronRight} className="w-5 h-5" />
@@ -245,19 +243,19 @@ const Hero = () => {
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className="w-1/5 h-2.5 bg-white/20 rounded-full overflow-hidden relative"
+                className="w-1/5 h-2.5 bg-gray-200 rounded-full overflow-hidden relative"
                 aria-label={`Go to slide ${index + 1}`}
               >
                 {index === currentSlide && (
                   <motion.div
-                    className="absolute top-0 left-0 h-full bg-cyan-300"
+                    className="absolute top-0 left-0 h-full bg-indigo-600"
                     style={{ width: `${progress}%` }}
                     transition={{ duration: 0.05, ease: 'linear' }}
                   />
                 )}
-                 {index !== currentSlide && (
-                    <div className={`h-full rounded-full transition-colors duration-300 ${isHovering ? 'bg-white/40' : ''}`}></div>
-                 )}
+                  {index !== currentSlide && (
+                    <div className={`h-full rounded-full transition-colors duration-300 ${isHovering ? 'bg-gray-300' : ''}`}></div>
+                  )}
               </button>
             ))}
           </div>
