@@ -1,8 +1,9 @@
 // src/components/HowItWorksSection.jsx
-import React from 'react';
+import React, { useRef } from 'react'; // useRef import edildi
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faWhatsapp, faTiktok } from '@fortawesome/free-brands-svg-icons';
 import { faBrain, faCommentDots } from '@fortawesome/free-solid-svg-icons';
+import { motion, useInView } from 'framer-motion'; // motion və useInView import edildi
 
 const StepCard = ({ number, title, description, icons }) => (
   <div className="bg-white p-8 rounded-xl shadow-md text-center feature-card transition duration-300">
@@ -49,17 +50,57 @@ const HowItWorks = () => {
     },
   ];
 
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 }); // Göründükdə bir dəfə animasiya etmək
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  const textVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+  };
+
   return (
     <div className="bg-gray-50 py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-extrabold text-gray-900 mb-4">3 Addımda Əla Nəticə</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Süni İntellekt Dəstəkli Asistantla Müştəri Əlaqələrinizi Dəyişdirin
-          </p>
+          <motion.h2
+            className="text-3xl font-extrabold text-gray-900 mb-4"
+            variants={textVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"} // useInView ilə animasiya
+          >
+            SmartSat Necə İşləyir?
+          </motion.h2>
+          <motion.p
+            className="text-xl text-gray-600 max-w-3xl mx-auto"
+            variants={textVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            transition={{ ...textVariants.visible.transition, delay: 0.2 }}
+          >
+            Üç Sadə Addımda Müştəri Loyallığını Yüksəldin
+          </motion.p>
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
-          {steps.map((step) => <StepCard key={step.number} {...step} />)}
+
+        <div
+          ref={ref} // ref-i bu div-ə əlavə edirik
+          className="grid md:grid-cols-3 gap-8"
+        >
+          {steps.map((step, index) => (
+            <motion.div
+              key={step.number}
+              variants={cardVariants}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              transition={{ duration: 0.6, delay: index * 0.2 }} // Hər kart üçün gecikmə
+            >
+              <StepCard {...step} />
+            </motion.div>
+          ))}
         </div>
       </div>
     </div>

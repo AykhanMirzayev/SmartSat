@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { motion, useInView } from 'framer-motion'; // motion və useInView import edildi
 
 const FAQItem = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,7 +40,7 @@ const FAQ = () => {
   const faqs = [
     {
       question: "SmartSat nədir?",
-      answer: "Biznes üçün Sosial Media Şəbəkələri üzərindən müştərilərə avtomatlaşdırılmış mesajlar göndərmək kimi xidmətlər təklif edən bir innovativ şirkətdir. SmarSat-ın məqsədi Sosial Media üzərindən müştərilərlə daha yaxşı və effektiv ünsiyyət qurmaqdır."
+      answer: "SmartSat, süni intellekt (AI) dəstəkli bir platformadır və əsas məqsədi sosial Media üzərindən müştərilərlə daha yaxşı və effektiv ünsiyyət qurmaqdır."
     },
     {
       question: "SmartSat kimlər üçün nəzərdə tutulub?",
@@ -56,17 +57,66 @@ const FAQ = () => {
     {
         question: "SmartSatın üstün cəhətləri nələrdir?",
         answer: "SmartSat-ın üstün cəhətləri onun inteqrasiyasının asan, interfeysinin istifadəçi dostu olması və 7/24 müştəri dəstəyinin olmasıdır."
+    },
+    {
+        question: "SmartSat müştəri məlumatlarının təhlükəsizliyini necə təmin edir?",
+        answer: "Müştəri məlumatlarınızın təhlükəsizliyi bizim üçün prioritetdir. SmartSat məlumatlarınızı qorumaq üçün ən yüksək təhlükəsizlik standartlarından və şifrələmə protokollarından istifadə edir. Məlumatlarınız heç vaxt üçüncü tərəflərlə paylaşılmır."
     }
   ];
 
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+
+  const textVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: { opacity: 1, x: 0 },
+  };
+
   return (
-    <div id="faq" className="max-w-3xl mx-auto m-16 scroll-mt-16 p-24">
-        <h3 className="text-2xl font-bold text-center mb-8">Ən Çox Verilən Suallar</h3>
-        <div className="space-y-4">
-            {faqs.map((faq, index) => (
-            <FAQItem key={index} question={faq.question} answer={faq.answer} />
-            ))}
+    <div id="faq" className="bg-gray-50 py-16 md:py-24">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <motion.h2
+            className="text-3xl font-extrabold text-gray-900 mb-4"
+            variants={textVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+          >
+            Tez-Tez Verilən Suallar
+          </motion.h2>
+          <motion.p
+            className="text-xl text-gray-600 max-w-3xl mx-auto"
+            variants={textVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            transition={{ ...textVariants.visible.transition, delay: 0.2 }}
+          >
+            SmartSat haqqında ən çox verilən suallara cavablar
+          </motion.p>
         </div>
+
+        <div
+          ref={ref} // ref-i bu div-ə əlavə edirik
+          className="space-y-4"
+        >
+          {faqs.map((faq, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              transition={{ duration: 0.6, delay: index * 0.1 }} // Hər FAQ elementi üçün gecikmə
+            >
+              <FAQItem question={faq.question} answer={faq.answer} />
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
