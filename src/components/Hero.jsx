@@ -9,51 +9,51 @@ const Hero = () => {
   const [isHovering, setIsHovering] = useState(false);
   const [progress, setProgress] = useState(0);
   const [direction, setDirection] = useState(1);
-  const slideIntervalTime = 5000; // 5 seconds
+  const slideIntervalTime = 5000; // 5 saniyə
 
   const slides = [
     {
-      customerInput: "My order is late again! Customer service is terrible!",
-      sentiment: "Frustration: High",
+      customerInput: "Sifarişim yenə gecikir! Müştəri xidməti dəhşətlidir!",
+      sentiment: "Məyusluq: Yüksək",
       sentimentColor: "from-red-500/80 to-orange-400/80",
-      aiResponse: "Dear [Customer Name], we sincerely apologize for the delay in your order. We understand how frustrating this must be. We are immediately checking the status of your order and will get back to you with an update.",
-      loyalty: "Decreased",
+      aiResponse: "Hörmətli [Müştəri Adı], sifarişinizdəki gecikməyə görə səmimi qəlbdən üzr istəyirik. Bunun nə qədər cansıxıcı olduğunu başa düşürük. Dərhal sifarişinizin statusunu yoxlayır və sizə məlumat verəcəyik.",
+      loyalty: "Azaldı",
       loyaltyIcon: faFrown,
       loyaltyColor: "text-red-500",
     },
     {
-      customerInput: "I don't know how to use this product, there are no instructions.",
-      sentiment: "Confusion: Medium",
+      customerInput: "Bu məhsulu necə istifadə edəcəyimi bilmirəm, təlimat yoxdur.",
+      sentiment: "Çaşkınlıq: Orta",
       sentimentColor: "from-yellow-500/80 to-amber-400/80",
-      aiResponse: "Dear [Customer Name], we are sorry for the difficulty you're experiencing. Please let us know which part you are having trouble with so we can provide detailed assistance. We can also send you a link to the user manual.",
-      loyalty: "Neutral",
+      aiResponse: "Hörmətli [Müştəri Adı], yaşadığınız çətinliyə görə təəssüf edirik. Zəhmət olmasa, hansı hissədə çətinlik çəkdiyinizi bildirin ki, sizə ətraflı köməklik göstərək. Həmçinin istifadəçi təlimatına keçid göndərə bilərik.",
+      loyalty: "Neytral",
       loyaltyIcon: faMeh,
       loyaltyColor: "text-gray-500",
     },
     {
-      customerInput: "I am very satisfied with your service! Thank you for everything!",
-      sentiment: "Positive: Very High",
+      customerInput: "Xidmətinizdən çox məmnunam! Hər şey üçün təşəkkür edirəm!",
+      sentiment: "Müsbət: Çox Yüksək",
       sentimentColor: "from-green-500/80 to-emerald-400/80",
-      aiResponse: "Dear [Customer Name], thank you for your wonderful feedback! Your satisfaction is our biggest motivation. If you have any other questions, please don't hesitate to ask.",
-      loyalty: "Increased",
+      aiResponse: "Hörmətli [Müştəri Adı], gözəl rəyiniz üçün təşəkkür edirik! Sizin məmnuniyyətiniz bizim ən böyük motivasiyamızdır. Başqa suallarınız olarsa, çəkinmədən soruşun.",
+      loyalty: "Artı",
       loyaltyIcon: faSmile,
       loyaltyColor: "text-green-500",
     },
     {
-      customerInput: "Nobody is answering me. How long is this going to take?",
-      sentiment: "Annoyance: High",
+      customerInput: "Heç kim mənə cavab vermir. Bu nə qədər davam edəcək?",
+      sentiment: "Əsəbilik: Yüksək",
       sentimentColor: "from-purple-500/80 to-indigo-400/80",
-      aiResponse: "Dear [Customer Name], we apologize for the delay in our response. We understand that waiting is not pleasant. We will check your query immediately and respond as soon as possible. Thank you for your patience.",
-      loyalty: "Decreased",
+      aiResponse: "Hörmətli [Müştəri Adı], cavabımızdakı gecikməyə görə üzr istəyirik. Gözləməyin xoş olmadığını anlayırıq. Sorğunuzu dərhal yoxlayıb ən qısa zamanda cavab verəcəyik. Səbriniz üçün təşəkkür edirik.",
+      loyalty: "Azaldı",
       loyaltyIcon: faFrown,
       loyaltyColor: "text-red-500",
     },
     {
-      customerInput: "Why was my subscription automatically renewed? I had canceled it!",
-      sentiment: "Anger: High",
+      customerInput: "Abunəliyim niyə avtomatik yeniləndi? Mən onu ləğv etmişdim!",
+      sentiment: "Qəzəb: Yüksək",
       sentimentColor: "from-pink-500/80 to-rose-400/80",
-      aiResponse: "Dear [Customer Name], we are sorry for the concern caused by the automatic renewal of your subscription. We will investigate this matter immediately and inform you as soon as possible. Please confirm your account details so we can check your subscription.",
-      loyalty: "Decreased",
+      aiResponse: "Hörmətli [Müştəri Adı], abunəliyinizin avtomatik yenilənməsi ilə bağlı narahatlığa görə təəssüf edirik. Bu məsələni dərhal araşdırıb sizə məlumat verəcəyik. Zəhmət olmasa, hesab məlumatlarınızı təsdiqləyin ki, abunəliyinizi yoxlaya bilək.",
+      loyalty: "Azaldı",
       loyaltyIcon: faFrown,
       loyaltyColor: "text-red-500",
     }
@@ -135,7 +135,7 @@ const Hero = () => {
           initial="hidden"
           animate="visible"
         >
-          Transform Customer Service with <br className="hidden sm:inline" /><span className="text-indigo-600">Artificial Intelligence</span>
+          Müştəri Xidmətini <br className="hidden sm:inline" /><span className="text-indigo-600">Süni İntellektlə</span> Transformasiya Edin
         </motion.h1>
         <motion.p
           className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed"
@@ -144,7 +144,7 @@ const Hero = () => {
           animate="visible"
           transition={{ ...fadeInVariants.visible.transition, delay: 0.2 }}
         >
-          With SmartSat, instantly analyze social media messages, understand customer emotions, and increase loyalty with automated response suggestions.
+          SmartSat ilə sosial media mesajlarını anında təhlil edin, müştəri emosiyalarını anlayın və avtomatlaşdırılmış cavab təklifləri ilə loyallığı artırın.
         </motion.p>
         <motion.div
           className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-16"
@@ -157,14 +157,14 @@ const Hero = () => {
             href="#demo"
             className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:px-10 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
-            Watch Demo
+            Demoya Baxın
             <FontAwesomeIcon icon={faChevronRight} className="ml-2 -mr-1 h-4 w-4" />
           </a>
           <a
             href="#pricing"
             className="inline-flex items-center justify-center px-8 py-3 border border-indigo-600 text-base font-medium rounded-full text-indigo-600 hover:bg-indigo-50 md:py-4 md:px-10 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
-            View Pricing
+            Qiymətlərə Baxın
           </a>
         </motion.div>
 
@@ -194,7 +194,7 @@ const Hero = () => {
                   <div className="relative">
                       <div className="flex items-center mb-3">
                         <FontAwesomeIcon icon={faUserCircle} className="mr-3 text-2xl text-white/80" />
-                        <h3 className="text-xl font-bold">Customer Message</h3>
+                        <h3 className="text-xl font-bold">Müştəri Mesajı</h3>
                       </div>
                       <p className="text-white/90 text-lg italic bg-black/10 p-4 rounded-lg">"{slides[currentSlide].customerInput}"</p>
                   </div>
@@ -203,7 +203,7 @@ const Hero = () => {
                   <div className="relative mt-4">
                       <div className="flex items-center mb-3">
                           <FontAwesomeIcon icon={faRobot} className="mr-3 text-2xl text-cyan-300" />
-                          <h3 className="text-xl font-bold">SmartSat Response</h3>
+                          <h3 className="text-xl font-bold">SmartSat Cavabı</h3>
                       </div>
                       <p className="text-white/90 text-base bg-black/10 p-4 rounded-lg">{slides[currentSlide].aiResponse}</p>
                   </div>
@@ -225,14 +225,14 @@ const Hero = () => {
           <button
             onClick={prevSlide}
             className="absolute top-1/2 -left-4 md:-left-12 transform -translate-y-1/2 bg-gray-100 hover:bg-gray-200 text-indigo-600 p-3 rounded-full shadow-lg z-20 transition-all duration-300 hover:scale-110 focus:outline-none"
-            aria-label="Previous Slide"
+            aria-label="Əvvəlki Slayd"
           >
             <FontAwesomeIcon icon={faChevronLeft} className="w-5 h-5" />
           </button>
           <button
             onClick={nextSlide}
             className="absolute top-1/2 -right-4 md:-right-12 transform -translate-y-1/2 bg-gray-100 hover:bg-gray-200 text-indigo-600 p-3 rounded-full shadow-lg z-20 transition-all duration-300 hover:scale-110 focus:outline-none"
-            aria-label="Next Slide"
+            aria-label="Növbəti Slayd"
           >
             <FontAwesomeIcon icon={faChevronRight} className="w-5 h-5" />
           </button>
@@ -244,7 +244,7 @@ const Hero = () => {
                 key={index}
                 onClick={() => goToSlide(index)}
                 className="w-1/5 h-2.5 bg-gray-200 rounded-full overflow-hidden relative"
-                aria-label={`Go to slide ${index + 1}`}
+                aria-label={`${index + 1}-ci slayda keç`}
               >
                 {index === currentSlide && (
                   <motion.div
